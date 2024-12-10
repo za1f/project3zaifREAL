@@ -1,7 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        People people = new People();
-        people.KassIno();
-        System.out.println(people);
+        Casino hi = new Casino();
+        hi.charInfo();
     }
 }
