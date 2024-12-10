@@ -14,7 +14,7 @@ public class People {
     public void KassIno(){
         name = "Kass Ino";
         gender = "F";
-        age = 19;
+        age = 20;
         desc = "Crazy New Jeans fan who spent too much money on their concerts and albums";
         weakness = "she cannot tolerate alcohol";
         strengths = "she never gives up";
