@@ -60,13 +60,13 @@ public class Casino {
                 System.out.println("Spinning...");
                 System.out.println("Results: " + reel1 + " | " + reel2 + " | " + reel3);
                 if (reel1.equals(reel2) && reel2.equals(reel3)) {
-                    System.out.println("YOU HIT THE JACKPOT WITH: " + reel1 + "!");
+                    System.out.println("[YOU HIT THE JACKPOT WITH: " + reel1 + "!]");
                     money = (money - bet) + (bet * 3);
                 } else if (reel1.equals(reel2) || reel2.equals(reel3) || reel1.equals(reel3)) {
-                    System.out.println("mediocre but good job");
+                    System.out.println("[mediocre but good job]");
                     money = (money - bet) + (bet * 1.5);
                 } else {
-                    System.out.println("loser idiot");
+                    System.out.println("[you lost idiot]");
                     money = money - bet;
                 }
             }
@@ -97,10 +97,10 @@ public class Casino {
                     String colorResult = getColor(spinResult);
                     System.out.println("The ball landed on: " + spinResult + " (" + colorResult + ")");
                     if (colorResult.equalsIgnoreCase(colorBet)) {
-                        System.out.println("You win! Your color bet was correct.");
+                        System.out.println("[You win! Your color bet was correct.]");
                         money = (money - bet) + (bet * 2);
                     } else {
-                        System.out.println("You lose. Better luck next time.");
+                        System.out.println("[You lose. Better luck next time, loser.]");
                         money = money - bet;
                     }
                 } else if (choice == 2) {
@@ -109,10 +109,10 @@ public class Casino {
                     int spinResult = random.nextInt(37);
                     System.out.println("The ball landed on: " + spinResult);
                     if (spinResult == numberBet) {
-                        System.out.println("You win! Your number bet was correct.");
+                        System.out.println("[You win! Your number bet was correct.]");
                         money = (money - bet) + (bet * 7);
                     } else {
-                        System.out.println("You lose. Better luck next time.");
+                        System.out.println("[You lose. Better luck next time LOSER!!.]");
                         money = money - bet;
                     }
                 } else {
@@ -172,7 +172,7 @@ public class Casino {
 
                 int playerTotal = calculateHandValue(playerHand, playerCardCount);
                 if (playerTotal > 21) {
-                    System.out.println("You busted with " + playerTotal + ". Dealer wins!");
+                    System.out.println("[You busted with " + playerTotal + ". Dealer wins!]");
                     money = money - bet;
                     return;
                 }
@@ -181,21 +181,21 @@ public class Casino {
                 System.out.println("Dealer's cards: " + displayHand(dealerHand, dealerCardCount) + " (Total: " + calculateHandValue(dealerHand, dealerCardCount) + ")");
                 while (calculateHandValue(dealerHand, dealerCardCount) < 17) {
                     dealerHand[dealerCardCount++] = drawCard(random);
-                    System.out.println("Dealer draws a card. Dealer's cards: " + displayHand(dealerHand, dealerCardCount) + " (Total: " + calculateHandValue(dealerHand, dealerCardCount) + ")");
+                    System.out.println("[Dealer draws a card. Dealer's cards: " + displayHand(dealerHand, dealerCardCount) + " (Total: " + calculateHandValue(dealerHand, dealerCardCount) + ")]");
                 }
 
                 int dealerTotal = calculateHandValue(dealerHand, dealerCardCount);
                 if (dealerTotal > 21) {
-                    System.out.println("Dealer busted with " + dealerTotal + ". You win!");
+                    System.out.println("[Dealer busted with " + dealerTotal + ". You win!]");
                     money = (money - bet) + (bet * 2);
                 } else if (playerTotal > dealerTotal) {
-                    System.out.println("You win with " + playerTotal + " against dealer's " + dealerTotal + "!");
+                    System.out.println("[You win with " + playerTotal + " against dealer's " + dealerTotal + "!]");
                     money = (money - bet) + (bet * 3);
                 } else if (playerTotal < dealerTotal) {
-                    System.out.println("Dealer wins with " + dealerTotal + " against your " + playerTotal + "!");
+                    System.out.println("[Dealer wins with " + dealerTotal + " against your " + playerTotal + "!]");
                     money = money - bet;
                 } else {
-                    System.out.println("It's a tie at " + playerTotal + "!");
+                    System.out.println("[It's a tie at " + playerTotal + "!]");
                 }
             }
         }
@@ -265,7 +265,9 @@ public class Casino {
         }
 
         public void viewBalance(){
+            System.out.println("======================================");
             System.out.println("Your current balance is: $" + money);
+            System.out.println("======================================");
         }
     }
 
