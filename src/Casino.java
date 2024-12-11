@@ -239,8 +239,8 @@ public class Casino {
                     money = money - bet;
                 } else if (mainChar.getAge() == 25) {
                     if (beers <= 3){
-                        System.out.println("You drank them without getting tipsy at all");
-                        money = money + bet;
+                        System.out.println("You drank them without getting tipsy at all! You got bonus money! (how lucky)");
+                        money = money + (bet * 1.5);
                     } else {
                         System.out.println("Yikes, you got drunk and you're escorted out");
                         money = money - bet;
