@@ -12,6 +12,18 @@ public class People {
         this.money = money;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public String getName(){
+        return name;
+    }
+
     public String CharacterInfo(){
         return "Name: " + name + "\n" + "Gender: " + gender + "\n" + "Age: " + age + "\n" + "Story: " + desc + "\n" + "Strengths: " + strengths + "\n" + "Weakness: " + weakness + "\n" + "Amount needed: " + money;
     }
